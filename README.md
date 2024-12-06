@@ -1,5 +1,3 @@
-# CHC-Tracker
-
 # CHC Tracker
 
 CHC Tracker is a web application designed to streamline the operations of Custom Hiring Centers (CHC). It enables users to manage farmer details, process supplement requests, and generate receipts. Additionally, it facilitates real-time tracking of farm supplements and leased tractors via a dynamic tracking mechanism integrated with map visualization.
