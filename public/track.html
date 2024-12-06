@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Tracking</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .box{
+            box-sizing: border-box;
+            background-color: cadetblue;
+            border-radius: 5px;
+            border: 2px solid black;
+            width:fit-content;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        .button-container {
+            text-align: center; /* Center-align buttons */
+        }
+        
+        button {
+            padding: 8px 17px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            border-radius: 3px;
+        
+        }
+        
+        #pageLink {
+            margin-top: 20px;
+        }
+        
+        #pageLink p {
+            margin: 0;
+        }
+        
+        #coordinatesDisplay {
+            margin-top: 20px;
+        }
+
+        header{
+            background-color: rgba(6, 206, 241, 0.964);
+            padding-bottom:20px;
+            padding-top:20px;
+            top:0;
+        }
+        
+
+        
+    </style>
+</head>
+<body>
+    <header>
+    <h1>Location Tracking</h1>
+    </header>
+    <hr>
+    <br><br><br><br><br><br><br><br>
+    <br><br>
+    <center>
+    <div class="box">
+        <br><br>
+    <button onclick="createPage()">Create Page</button>
+    <button onclick="startTracking()">Display Coordinates</button>
+    <br><br>
+</div>
+</center>
+    <br><br>
+    <div id="pageLink"></div>
+    <div id="coordinatesDisplay"></div>
+
+    <script>
+
+        let trackedPage;
+
+        function createPage() {
+            const pageID = generateRandomID();
+            trackedPage = window.open(`/generate/${pageID}`);
+            console.log(`Generated a new page with ID: ${pageID}`);
+
+            const pageLink = document.getElementById('pageLink');
+            pageLink.innerHTML = `<p>Page link: <a href="/generate/${pageID}" target="_blank">/generate/${pageID}</a></p>`;
+        }
+
+        function generateRandomID() {
+            return Math.random().toString(36).substr(2, 8);
+        }
+        function startTracking() {
+            const pageID = prompt('Enter the page ID to display coordinates:');
+
+            if (pageID && trackedPage) {
+
+                window.addEventListener('message', function (event) {
+                    if (event.origin !== window.location.origin) {
+                        return; 
+                    }
+
+                    if (event.data.type === 'locationUpdate' && event.data.pageID === pageID) {
+                        const { latitude, longitude } = event.data;
+                        document.getElementById('coordinatesDisplay').innerText = `  ${pageID}: ${latitude}, ${longitude}`;
+                    }
+                    document.getElementById('coordinatesDisplay').innerText = `Location Coordinates for ${pageID}: ${latitude}, ${longitude}`;
+                });
+                trackedPage.postMessage({ type: 'getLocation', pageID }, '*');
+            }
+        }
+        
+    </script>
+
+</body>
+</html>

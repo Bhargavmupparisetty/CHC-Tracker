@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification - CHCTracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .marquee { 
+            height: 30px;
+            overflow: hidden; 
+            position: relative;
+            text-align: center;
+             background: #fefefe; 
+             color: #333; 
+             border: 1px solid #4a4a4a; 
+            } 
+
+            .marquee p { position: absolute; width: 100%; height: 100%; margin: 0; line-height: 30px; text-align: center; -moz-transform: translateX(100%); -webkit-transform: translateX(100%); transform: translateX(100%); -moz-animation: scroll-left 2s linear infinite; -webkit-animation: scroll-left 2s linear infinite; animation: scroll-left 20s linear infinite; } 
+            @-moz-keyframes scroll-left { 0% { -moz-transform: translateX(100%); } 100% { -moz-transform: translateX(-100%); } } 
+            @-webkit-keyframes scroll-left { 0% { -webkit-transform: translateX(100%); } 100% { -webkit-transform: translateX(-100%); } } 
+            @keyframes scroll-left { 0% { -moz-transform: translateX(100%); -webkit-transform: translateX(100%); transform: translateX(100%); } 100% { -moz-transform: translateX(-100%); -webkit-transform: translateX(-100%); transform: translateX(-100%); } }
+
+
+            
+              p{
+               margin-left:50px;
+               margin-right:50px;
+               margin-top:10px;
+              }
+              .topnav {
+                overflow: hidden;
+               background-color:rgb(53, 189, 234);
+               color:white;
+               box-shadow: 1px 1px 2px grey;
+           } 
+   
+   
+           .topnav a { 
+               float: left; 
+               display: block; 
+               color: #f2f2f2; 
+               text-align: center; 
+               padding: 10px 12px;
+               text-decoration: none;
+           } 
+   
+               
+           .topnav a:hover { 
+               background:rgb(240, 19, 86); 
+               color:whitesmoke; 
+           }
+   
+           .container{
+               height: 200px;
+               flex-flow: row;
+               align-items: flex-end;
+               padding:8px;
+               background-color: rgb(238, 243, 243);
+           }
+   
+            </style>
+</head>
+<body>
+
+    <!-- NavBar -->
+    <div class="nav flex flex-col py-4 bg-blue-200">
+        <div class="md:px-12 px-8 flex justify-between items-center gap-4">
+            <div>
+                <a class="font-semibold text-lg" href="#">CHC Tracker</a>
+            </div>
+            <div class="grow md:flex hidden flex-row ml-4">
+                <form action="" class="w-full">
+                    <div class="w-full px-2">
+                        <input type="text" name="search" id="search" placeholder="Seach CHCTracker" class="border border-slate-300 w-full py-1 px-4 rounded grow">
+                    </div>
+                </form>
+                <button class="bg-slate-900 hover:bg-gray-700 text-slate-50 font-semibold text-sm px-4 rounded py-1">Search</button>
+            </div>
+            <svg id="hamb" class="lg:hidden w-6 h-6  cursor-pointer mr-1 ease-in duration-150 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+            </svg>
+            <svg class="lg:hidden w-6 h-6 hidden stroke-slate-900 cursor-pointer ease-in duration-150" id="cross" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            <div class="profile lg:flex hidden justify-between items-center gap-x-2">
+                <div class="flex items-center">
+                    <a href="#" class="px-4 py-2 font-semibold text-lg hover:underline underline-offset-2">Verify</a>
+                </div>
+            </div>
+        </div>
+    <div>
+        </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="topnav">
+        <a href="choice.html">home</a>
+        <a href="Details.html">details</a>
+        <a href="Help.html" style="float:right">Help</a>
+</div>
+<div class="marquee">
+    <p>Any announcements regarding various government are provided here..</p>
+</div>
+
+
+
+
+
+    <!-- Login -->
+    <div class="hidemenu flex items-center flex-col mt-12 ">
+        <div class="tab_container pr-8 py-4 sm:w-full w-4/5 md:max-w-xl sm:max-w-lg max-w-md">
+        </div>
+        <div class="tab_content w-full">
+            <div id="login">
+                <div class="flex flex-col items-center">
+                    <span class="sm:w-full w-4/5 md:max-w-xl sm:max-w-lg max-w-md font-semibold sm:text-4xl text-3xl mt-8 text-left">Verification of Beneficiary</span>
+                    <span class="sm:w-full w-4/5 md:max-w-xl sm:max-w-lg max-w-md text-lg font-semibold mt-8 text-left">Enter the code</span>
+                    <form method="get" spellcheck="true" action="/codeverify" class="flex flex-col gap-8 mt-8 sm:w-full w-4/5 md:max-w-xl sm:max-w-lg max-w-md items-center">
+                        <div class="w-full">
+                            <input class="w-full border-b border-slate-500 active:border-slate-900 focus-within:border-slate-900 outline-none py-2 px-1" type="number" id="code" name="code" autocomplete="current-password" placeholder="one time code">
+                        </div>
+                        <div class="w-full">
+                            <button class="w-full" style="color:white;background-color:black;padding:7px;border-radius:7px;">submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </div>
+</body>
+</html>
